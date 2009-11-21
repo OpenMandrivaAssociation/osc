@@ -7,6 +7,7 @@ License:	GPLv2+
 URL:		https://forgesvn1.novell.com/svn/opensuse/trunk/buildservice/src/clientlib/python/osc/
 # v=0.114; svn export https://forgesvn1.novell.com/svn/opensuse/trunk/buildservice/src/clientlib/python/osc osc-$v && tar czf osc-$v.tar.gz osc-$v
 Source:         osc-%{version}.tar.gz
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 %py_requires -d
 BuildRequires:  python-urlgrabber
 BuildRequires:	python-elementtree
