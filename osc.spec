@@ -54,3 +54,15 @@ install -m 0755 dist/osc.complete %{buildroot}%{_prefix}/lib/osc/complete
 %dir /var/lib/osc-plugins
 %doc AUTHORS README TODO NEWS
 %_mandir/man1/osc.*
+
+
+%changelog
+* Sat Nov 06 2010 Funda Wang <fwang@mandriva.org> 0.123-2mdv2011.0
++ Revision: 593922
+- rebuild for py2.7
+
+* Sat Nov 21 2009 Funda Wang <fwang@mandriva.org> 0.123-1mdv2010.1
++ Revision: 468054
+- add buildroot
+- import osc
+
