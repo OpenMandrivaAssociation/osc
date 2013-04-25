@@ -1,6 +1,6 @@
 Name:		osc
-Version:	0.123
-Release:	2
+Version:	0.139.2
+Release:	1
 Summary:	OpenSUSE Build Service Commander
 Group:		Development/Other
 License:	GPLv2+
