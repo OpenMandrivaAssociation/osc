@@ -33,18 +33,18 @@ python setup.py build
 python setup.py install --prefix=%{_prefix} --root %{buildroot}
 ln -s osc-wrapper.py %{buildroot}%{_bindir}/osc
 mkdir -p %{buildroot}%{_localstatedir}/lib/osc-plugins
-install -m755 dist/complete.csh -D %{buildroot}%{_sysconfdir}/profile.d/osc.csh
-install -m755 dist/complete.sh -D %{buildroot}%{_sysconfdir}/profile.d/osc.sh
+install -m644 dist/complete.csh -D %{buildroot}%{_sysconfdir}/profile.d/osc.csh
+install -m644 dist/complete.sh -D %{buildroot}%{_sysconfdir}/profile.d/osc.sh
 install -m755 dist/osc.complete -D %{buildroot}%{_prefix}/lib/osc/complete
 
 %files
+%doc AUTHORS README TODO NEWS
 %{_bindir}/osc*
 %{python_sitelib}/*
 %{_sysconfdir}/profile.d/*
 %dir %{_prefix}/lib/osc
 %{_prefix}/lib/osc/*
 %dir /var/lib/osc-plugins
-%doc AUTHORS README TODO NEWS
 %{_mandir}/man1/osc.1*
 
 %changelog
