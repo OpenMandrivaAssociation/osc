@@ -1,22 +1,20 @@
-Name:           osc
+Name:		osc
 Version:	0.123
-Release:	%mkrel 2
+Release:	2
 Summary:	OpenSUSE Build Service Commander
 Group:		Development/Other
 License:	GPLv2+
 URL:		https://forgesvn1.novell.com/svn/opensuse/trunk/buildservice/src/clientlib/python/osc/
 # v=0.114; svn export https://forgesvn1.novell.com/svn/opensuse/trunk/buildservice/src/clientlib/python/osc osc-$v && tar czf osc-$v.tar.gz osc-$v
-Source:         osc-%{version}.tar.gz
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-%py_requires -d
-BuildRequires:  python-urlgrabber
+Source0:	%{name}-%{version}.tar.gz
 BuildRequires:	python-elementtree
-BuildRequires:  python-m2crypto > 0.19
-Requires:       python-m2crypto > 0.19
-Requires:       python-urlgrabber
+BuildRequires:	pythonegg(m2crypto)
+BuildRequires:	pythonegg(urlgrabber)
 Requires:	python-elementtree
+Requires:	pythonegg(m2crypto)
+Requires:	pythonegg(urlgrabber)
 Requires:	python-rpm
-BuildArch:      noarch
+BuildArch:	noarch
 
 %description
 Commandline client for the openSUSE Build Service.
@@ -29,23 +27,17 @@ introduction.
 %setup -q
 
 %build
-CFLAGS="%{optflags}" %{__python} setup.py build
+python setup.py build
 
 %install
-%{__python} setup.py install --prefix=%{_prefix} --root %{buildroot}
-ln -s osc-wrapper.py %{buildroot}/%{_bindir}/osc
-mkdir -p %{buildroot}/var/lib/osc-plugins
-mkdir -p %{buildroot}%{_sysconfdir}/profile.d
-install -m 0755 dist/complete.csh %{buildroot}%{_sysconfdir}/profile.d/osc.csh
-install -m 0755 dist/complete.sh %{buildroot}%{_sysconfdir}/profile.d/osc.sh
-mkdir -p %{buildroot}%{_prefix}/lib/osc
-install -m 0755 dist/osc.complete %{buildroot}%{_prefix}/lib/osc/complete
-
-%clean
-%{__rm} -rf %{buildroot}
+python setup.py install --prefix=%{_prefix} --root %{buildroot}
+ln -s osc-wrapper.py %{buildroot}%{_bindir}/osc
+mkdir -p %{buildroot}%{_localstatedir}/lib/osc-plugins
+install -m755 dist/complete.csh -D %{buildroot}%{_sysconfdir}/profile.d/osc.csh
+install -m755 dist/complete.sh -D %{buildroot}%{_sysconfdir}/profile.d/osc.sh
+install -m755 dist/osc.complete -D %{buildroot}%{_prefix}/lib/osc/complete
 
 %files
-%defattr(-,root,root)
 %{_bindir}/osc*
 %{python_sitelib}/*
 %{_sysconfdir}/profile.d/*
@@ -53,8 +45,7 @@ install -m 0755 dist/osc.complete %{buildroot}%{_prefix}/lib/osc/complete
 %{_prefix}/lib/osc/*
 %dir /var/lib/osc-plugins
 %doc AUTHORS README TODO NEWS
-%_mandir/man1/osc.*
-
+%{_mandir}/man1/osc.1*
 
 %changelog
 * Sat Nov 06 2010 Funda Wang <fwang@mandriva.org> 0.123-2mdv2011.0
