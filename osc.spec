@@ -1,11 +1,14 @@
 Name:		osc
-Version:	0.139.2
+Version:	0.144
 Release:	1
 Summary:	OpenSUSE Build Service Commander
 Group:		Development/Other
 License:	GPLv2+
 URL:		https://forgesvn1.novell.com/svn/opensuse/trunk/buildservice/src/clientlib/python/osc/
 Source0:	%{name}-%{version}.tar.gz
+Source1:	complete.csh
+Source2:	complete.sh
+Source3:	osc.complete
 BuildRequires:	python-elementtree
 BuildRequires:	pythonegg(m2crypto)
 BuildRequires:	pythonegg(urlgrabber)
@@ -32,12 +35,12 @@ python setup.py build
 python setup.py install --prefix=%{_prefix} --root %{buildroot}
 ln -s osc-wrapper.py %{buildroot}%{_bindir}/osc
 mkdir -p %{buildroot}%{_localstatedir}/lib/osc-plugins
-install -m644 dist/complete.csh -D %{buildroot}%{_sysconfdir}/profile.d/osc.csh
-install -m644 dist/complete.sh -D %{buildroot}%{_sysconfdir}/profile.d/osc.sh
-install -m755 dist/osc.complete -D %{buildroot}%{_prefix}/lib/osc/complete
+install -m644 %{SOURCE1} -D %{buildroot}%{_sysconfdir}/profile.d/osc.csh
+install -m644 %{SOURCE2} -D %{buildroot}%{_sysconfdir}/profile.d/osc.sh
+install -m755 %{SOURCE3} -D %{buildroot}%{_prefix}/lib/osc/complete
 
 %files
-%doc AUTHORS README TODO NEWS
+%doc README
 %{_bindir}/osc*
 %{python_sitelib}/*
 %{_sysconfdir}/profile.d/*
