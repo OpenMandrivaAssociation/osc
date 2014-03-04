@@ -5,7 +5,6 @@ Summary:	OpenSUSE Build Service Commander
 Group:		Development/Other
 License:	GPLv2+
 URL:		https://forgesvn1.novell.com/svn/opensuse/trunk/buildservice/src/clientlib/python/osc/
-# v=0.114; svn export https://forgesvn1.novell.com/svn/opensuse/trunk/buildservice/src/clientlib/python/osc osc-$v && tar czf osc-$v.tar.gz osc-$v
 Source0:	%{name}-%{version}.tar.gz
 BuildRequires:	python-elementtree
 BuildRequires:	pythonegg(m2crypto)
@@ -46,14 +45,3 @@ install -m755 dist/osc.complete -D %{buildroot}%{_prefix}/lib/osc/complete
 %{_prefix}/lib/osc/*
 %dir /var/lib/osc-plugins
 %{_mandir}/man1/osc.1*
-
-%changelog
-* Sat Nov 06 2010 Funda Wang <fwang@mandriva.org> 0.123-2mdv2011.0
-+ Revision: 593922
-- rebuild for py2.7
-
-* Sat Nov 21 2009 Funda Wang <fwang@mandriva.org> 0.123-1mdv2010.1
-+ Revision: 468054
-- add buildroot
-- import osc
-
