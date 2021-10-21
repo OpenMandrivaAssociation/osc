@@ -1,20 +1,20 @@
 Name:		osc
-Version:	0.144
-Release:	2
+Version:	0.174.0
+Release:	1
 Summary:	OpenSUSE Build Service Commander
 Group:		Development/Other
 License:	GPLv2+
-URL:		https://forgesvn1.novell.com/svn/opensuse/trunk/buildservice/src/clientlib/python/osc/
-Source0:	%{name}-%{version}.tar.gz
+URL:		https://github.com/openSUSE/osc
+Source0:	https://github.com/openSUSE/osc/archive/refs/tags/0.174.0.tar.gz
 Source1:	complete.csh
 Source2:	complete.sh
 Source3:	osc.complete
 BuildRequires:	python-elementtree
-BuildRequires:	pythonegg(m2crypto)
-BuildRequires:	pythonegg(urlgrabber)
+BuildRequires:	python3dist(m2crypto)
+BuildRequires:	python3dist(urlgrabber)
 Requires:	python-elementtree
-Requires:	pythonegg(m2crypto)
-Requires:	pythonegg(urlgrabber)
+Requires:	python3dist(m2crypto)
+Requires:	python3dist(urlgrabber)
 Requires:	python-rpm
 BuildArch:	noarch
 
