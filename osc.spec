@@ -12,6 +12,7 @@ Source3:	osc.complete
 BuildRequires:	python-elementtree
 BuildRequires:	python3dist(m2crypto)
 BuildRequires:	python3dist(urlgrabber)
+BuildRequires:	python3dist(setuptools)
 Requires:	python-elementtree
 Requires:	python3dist(m2crypto)
 Requires:	python3dist(urlgrabber)
