@@ -1,11 +1,11 @@
 Name:		osc
-Version:	0.174.0
+Version:	1.27.2
 Release:	1
 Summary:	OpenSUSE Build Service Commander
 Group:		Development/Other
 License:	GPLv2+
 URL:		https://github.com/openSUSE/osc
-Source0:	https://github.com/openSUSE/osc/archive/refs/tags/0.174.0.tar.gz
+Source0:	https://github.com/openSUSE/osc/archive/refs/tags/1.27.2.tar.gz
 Source1:	complete.csh
 Source2:	complete.sh
 Source3:	osc.complete
